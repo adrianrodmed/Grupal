@@ -88,7 +88,7 @@ public class CarritoInfo {
         return this.lineaCarrito.isEmpty();
         }
  
-    public boolean isValidCustomer() {
+    public boolean isValidComprador() {
         return this.compradorInfo != null && this.compradorInfo.isValid();
         }
  

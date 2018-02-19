@@ -37,7 +37,7 @@ public class DestinoInfoValidator implements Validator {
             if (iddestino.matches("\\s+")) {
                 errors.rejectValue("iddestino", "Pattern.destinoForm.iddestino");
                 }
-            else if(destinoInfo.isNewProduct()) {
+            else if(destinoInfo.isNewDestino()) {
                 Destino destino = destinoDAO.findDestino(iddestino);
                 if (destino != null) {
                     errors.rejectValue("iddestino", "Duplicate.destinoForm.iddestino");

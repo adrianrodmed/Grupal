@@ -40,13 +40,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
        http.authorizeRequests().and().formLogin()//
                // Submit URL of login page.
                .loginProcessingUrl("/j_spring_security_check") // Submit URL
-               .loginPage("/login")//
+               .loginPage("/registro")//
                .defaultSuccessUrl("/cuentaInfo")//
-               .failureUrl("/login?error=true")//
+               .failureUrl("/registro?error=true")//
                .usernameParameter("nombre")//
                .passwordParameter("pass")
                // Config for Logout Page
                // (Go to home page).
-               .and().logout().logoutUrl("/logout").logoutSuccessUrl("/");
+               .and().logout().logoutUrl("/cierreSesion").logoutSuccessUrl("/");
        }
    }

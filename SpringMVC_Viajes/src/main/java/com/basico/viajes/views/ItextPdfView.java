@@ -24,7 +24,7 @@ public class ItextPdfView extends AbstractITextPdfView {
 
         @SuppressWarnings("unchecked")
 //        List<CartInfo> cartinfos = (List<CartInfo>) model.get("cartinfos");
-        CarritoInfo carritoinfo = Utiles.getCartInSession(request);
+        CarritoInfo carritoinfo = Utiles.getSesionCarrito(request);
         PdfPTable table = new PdfPTable(5);
         table.setWidths(new int[]{35, 10, 10, 10, 35});
 

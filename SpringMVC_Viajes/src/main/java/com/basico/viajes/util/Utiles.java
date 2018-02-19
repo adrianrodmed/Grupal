@@ -6,7 +6,7 @@ import com.basico.viajes.model.CarritoInfo;
  
 public class Utiles {
  
-    public static CarritoInfo getCartInSession(HttpServletRequest request) {
+    public static CarritoInfo getSesionCarrito(HttpServletRequest request) {
  
         CarritoInfo carritoInfo = (CarritoInfo) request.getSession().getAttribute("miCarrito");
         
@@ -17,15 +17,15 @@ public class Utiles {
         return carritoInfo;
         }
  
-    public static void removeCartInSession(HttpServletRequest request) {
+    public static void eliminaSesionCarrito(HttpServletRequest request) {
         request.getSession().removeAttribute("miCarrito");
         }
  
-    public static void storeLastOrderedCartInSession(HttpServletRequest request, CarritoInfo carritoInfo) {
+    public static void guardaUltimaCompraSesionCarrito(HttpServletRequest request, CarritoInfo carritoInfo) {
         request.getSession().setAttribute("ultimoCarritoPedido", carritoInfo);
         }
     
-    public static CarritoInfo getLastOrderedCartInSession(HttpServletRequest request) {
+    public static CarritoInfo getUltimaCompraSesionCarrito(HttpServletRequest request) {
         return (CarritoInfo) request.getSession().getAttribute("ultimoCarritoPedido");
         }
     }

@@ -1,4 +1,4 @@
-package org.o7planning.springmvcshoppingcart.controller;
+package com.basico.viajes.controller;
  
 import java.util.List;
 
@@ -38,13 +38,13 @@ import com.basico.viajes.validator.DestinoInfoValidator;
 public class AdminController {
  
     @Autowired
-    private CompraDAO orderDAO;
+    private CompraDAO compraDAO;
  
     @Autowired
-    private DestinoDAO productDAO;
+    private DestinoDAO destinoDAO;
  
     @Autowired
-    private DestinoInfoValidator productInfoValidator;
+    private DestinoInfoValidator destinoInfoValidator;
  
     // Configurated In ApplicationContextConfig.
     @Autowired
@@ -55,109 +55,106 @@ public class AdminController {
         Object target = dataBinder.getTarget();
         if (target == null) {
             return;
-        }
+            }
         System.out.println("Target=" + target);
  
         if (target.getClass() == DestinoInfo.class) {
-            dataBinder.setValidator(productInfoValidator);
+            dataBinder.setValidator(destinoInfoValidator);
             // For upload Image.
             dataBinder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
+            }
         }
-    }
  
     // GET: Show Login Page
-    @RequestMapping(value = { "/login" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/registro" }, method = RequestMethod.GET)
     public String login(Model model) {
+        return "registro";
+        }
  
-        return "login";
-    }
+    @RequestMapping(value = { "/cuentaInfo" }, method = RequestMethod.GET)
+    public String cuentaInfo(Model model) {
  
-    @RequestMapping(value = { "/accountInfo" }, method = RequestMethod.GET)
-    public String accountInfo(Model model) {
+        UserDetails detalles = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(detalles.getPassword());
+        System.out.println(detalles.getUsername());
+        System.out.println(detalles.isEnabled());
  
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(userDetails.getPassword());
-        System.out.println(userDetails.getUsername());
-        System.out.println(userDetails.isEnabled());
+        model.addAttribute("detalles", detalles);
+        return "cuentaInfo";
+        }
  
-        model.addAttribute("userDetails", userDetails);
-        return "accountInfo";
-    }
- 
-    @RequestMapping(value = { "/orderList" }, method = RequestMethod.GET)
-    public String orderList(Model model, //
+    @RequestMapping(value = { "/listaCompra" }, method = RequestMethod.GET)
+    public String listaCompra(Model model, //
             @RequestParam(value = "page", defaultValue = "1") String pageStr) {
         int page = 1;
         try {
             page = Integer.parseInt(pageStr);
-        } catch (Exception e) {
+            }
+        catch (Exception e) {
         }
         final int MAX_RESULT = 5;
         final int MAX_NAVIGATION_PAGE = 10;
  
         PaginationResult<CompraInfo> paginationResult //
-        = orderDAO.listOrderInfo(page, MAX_RESULT, MAX_NAVIGATION_PAGE);
+        = compraDAO.listCompraInfo(page, MAX_RESULT, MAX_NAVIGATION_PAGE);
  
         model.addAttribute("paginationResult", paginationResult);
-        return "orderList";
-    }
+        return "listaCompra";
+        }
  
     // GET: Show product.
-    @RequestMapping(value = { "/product" }, method = RequestMethod.GET)
-    public String product(Model model, @RequestParam(value = "code", defaultValue = "") String code) {
-        DestinoInfo productInfo = null;
+    @RequestMapping(value = { "/destino" }, method = RequestMethod.GET)
+    public String destino(Model model, @RequestParam(value = "iddestino", defaultValue = "") String iddestino) {
+        DestinoInfo destinoInfo = null;
  
-        if (code != null && code.length() > 0) {
-            productInfo = productDAO.findProductInfo(code);
+        if (iddestino != null && iddestino.length() > 0) {
+            destinoInfo = destinoDAO.findDestinoInfo(iddestino);
+            }
+        if (destinoInfo == null) {
+            destinoInfo = new DestinoInfo();
+            destinoInfo.setNewDestino(true);
+            }
+        model.addAttribute("destinoForm", destinoInfo);
+        return "destino";
         }
-        if (productInfo == null) {
-            productInfo = new DestinoInfo();
-            productInfo.setNewProduct(true);
-        }
-        model.addAttribute("productForm", productInfo);
-        return "product";
-    }
  
     // POST: Save product
-    @RequestMapping(value = { "/product" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/destino" }, method = RequestMethod.POST)
     // Avoid UnexpectedRollbackException (See more explanations)
     @Transactional(propagation = Propagation.NEVER)
-    public String productSave(Model model, //
-            @ModelAttribute("productForm") @Validated DestinoInfo productInfo, //
+    public String destinoSave(Model model, //
+            @ModelAttribute("destinoForm") @Validated DestinoInfo destinoInfo, //
             BindingResult result, //
             final RedirectAttributes redirectAttributes) {
  
         if (result.hasErrors()) {
-            return "product";
-        }
+            return "destino";
+            }
         try {
-            productDAO.save(productInfo);
-        } catch (Exception e) {
+            destinoDAO.save(destinoInfo);
+            }
+        catch (Exception e) {
             // Need: Propagation.NEVER?
-            String message = e.getMessage();
-            model.addAttribute("message", message);
+            String mensaje = e.getMessage();
+            model.addAttribute("mensaje", mensaje);
             // Show product form.
-            return "product";
- 
+            return "destino";
+            }
+        return "redirect:/listaDestino";
         }
-        return "redirect:/productList";
+ 
+    @RequestMapping(value = { "/compra" }, method = RequestMethod.GET)
+    public String compraView(Model model, @RequestParam("idcompra") String idcompra) {
+        CompraInfo compraInfo = null;
+        if (idcompra != null) {
+            compraInfo = this.compraDAO.getCompraInfo(idcompra);
+            }
+        if (compraInfo == null) {
+            return "redirect:/listaCompra";
+            }
+        List<ReservaInfo> reservas = this.compraDAO.listReservasInfos(idcompra);
+        compraInfo.setReservas(reservas);
+        model.addAttribute("compraInfo", compraInfo);
+        return "compra";
+        }
     }
- 
-    @RequestMapping(value = { "/order" }, method = RequestMethod.GET)
-    public String orderView(Model model, @RequestParam("orderId") String orderId) {
-        CompraInfo orderInfo = null;
-        if (orderId != null) {
-            orderInfo = this.orderDAO.getOrderInfo(orderId);
-        }
-        if (orderInfo == null) {
-            return "redirect:/orderList";
-        }
-        List<ReservaInfo> details = this.orderDAO.listOrderDetailInfos(orderId);
-        orderInfo.setDetails(details);
- 
-        model.addAttribute("orderInfo", orderInfo);
- 
-        return "order";
-    }
-    
-}

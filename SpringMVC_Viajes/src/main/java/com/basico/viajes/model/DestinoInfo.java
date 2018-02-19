@@ -14,7 +14,7 @@ public class DestinoInfo {
     private int numplazas;
     private double precio;
  
-    private boolean newProduct=false;
+    private boolean newDestino=false;
  
     // Upload file.
     private CommonsMultipartFile fileData;
@@ -83,11 +83,11 @@ public class DestinoInfo {
 		this.precio = precio;
 		}
 
-	public boolean isNewProduct() {
-		return newProduct;
+	public boolean isNewDestino() {
+		return newDestino;
 		}
-	public void setNewProduct(boolean newProduct) {
-		this.newProduct = newProduct;
+	public void setNewDestino(boolean newDestino) {
+		this.newDestino = newDestino;
 		}
 
 	public CommonsMultipartFile getFileData() {
