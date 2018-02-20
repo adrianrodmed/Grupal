@@ -92,14 +92,16 @@ public class CompraDAOImpl implements CompraDAO {
                 + Compra.class.getName() + " com "//
                 + " compra by com.numcompra desc";
         Session session = this.sessionFactory.getCurrentSession();
-         Query query = session.createQuery(sql);
+        Query query = session.createQuery(sql);
         return new PaginationResult<CompraInfo>(query, page, maxResult, maxNavigationPage);
         }
  
     public Compra findCompra(String idcompra) {
         Session session = sessionFactory.getCurrentSession();
         Criteria crit = session.createCriteria(Compra.class);
+        crit.createAlias("Compras", "Cmp");
         crit.add(Restrictions.eq("idcompra", idcompra));
+        crit.add(Restrictions.eq("Cnt.idcompra", idcompra));
         return (Compra) crit.uniqueResult();
         }
  
@@ -114,7 +116,7 @@ public class CompraDAOImpl implements CompraDAO {
         		compra.getFechacompra(), compra.getNumcompra());
         }
  
-    public List<ReservaInfo> listReservaInfos(String idcompra) {
+    public List<ReservaInfo> listReservasInfos(String idcompra) {
         String sql = "Select new " + ReservaInfo.class.getName() //
                 + "(r.idreserva, r.destino.iddestino, r.destino.nombre , r.cantidad, r.precio, r.preciototal, r.numplazas) "//
                 + " from " + Reserva.class.getName() + " r "//
@@ -124,9 +126,4 @@ public class CompraDAOImpl implements CompraDAO {
         query.setParameter("idcompra", idcompra);
         return query.list();
         }
-
-	public List<ReservaInfo> listReservasInfos(String idcompra) {
-		// TODO Auto-generated method stub
-		return null;
-		}/*MIRAR ESTO*/
 	}

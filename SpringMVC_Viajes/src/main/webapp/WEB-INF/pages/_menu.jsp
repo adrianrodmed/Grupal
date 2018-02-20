@@ -12,7 +12,7 @@
 		<div class="menu-container">
 			<a href="${pageContext.request.contextPath}/">Indice</a>|
 			<a href="${pageContext.request.contextPath}/listaDestino">Lista de Destinos</a>|
-			<a href="${pageContext.request.contextPath}/shoppingCart">Mi Carrito</a>|
+			<a href="${pageContext.request.contextPath}/carritoCompra">Mi Carrito</a>|
 			<security:authorize access="hasAnyRole('Administrador','Empleado')">
 				<a href="${pageContext.request.contextPath}/listaCompra">Lista de la Compra</a>|
 			</security:authorize>

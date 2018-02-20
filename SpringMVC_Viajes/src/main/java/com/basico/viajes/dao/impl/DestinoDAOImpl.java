@@ -24,7 +24,9 @@ public class DestinoDAOImpl implements DestinoDAO {
     public Destino findDestino(String iddestino) {
         Session session = sessionFactory.getCurrentSession();
         Criteria crit = session.createCriteria(Destino.class);
+        crit.createAlias("Destinos", "Dst");
         crit.add(Restrictions.eq("iddestino", iddestino));
+        crit.add(Restrictions.eq("Cnt.iddestino", iddestino));
         return (Destino) crit.uniqueResult();
         }
  
@@ -80,7 +82,7 @@ public class DestinoDAOImpl implements DestinoDAO {
         sql += " compra by d.fecha desc ";
         //
         Session session = sessionFactory.getCurrentSession();
-         Query query = session.createQuery(sql);
+        Query query = session.createQuery(sql);
         if (likeName != null && likeName.length() > 0) {
             query.setParameter("likeName", "%" + likeName.toLowerCase() + "%");
             }

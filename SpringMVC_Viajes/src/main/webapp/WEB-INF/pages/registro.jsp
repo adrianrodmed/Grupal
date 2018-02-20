@@ -23,11 +23,11 @@
 				<table>
 					<tr>
 						<td>Nombre de Usuario: </td>
-						<td><input name="name"/></td>
+						<td><input name="nombre"/></td>
 					</tr>
 					<tr>
 						<td>Contraseña: </td>
-						<td><input type="password" name="password"/></td>
+						<td><input type="password" name="pass"/></td>
 					</tr>
 					<tr>
 						<td>&nbsp;</td>

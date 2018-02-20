@@ -232,10 +232,10 @@ public class MainController {
     }
  
     @RequestMapping(value = { "/finalizacionCarritoCompra" }, method = RequestMethod.GET)
-    public String shoppingCartFinalize(HttpServletRequest request, Model model) {
+    public String finalizacionCarritoCompra(HttpServletRequest request, Model model) {
         CarritoInfo ultimaCompraCarrito = Utiles.getUltimaCompraSesionCarrito(request);
         if (ultimaCompraCarrito == null) {
-            return "redirect:/shoppingCart";
+            return "redirect:/carritoCompra";
             }
         return "finalizacionCarritoCompra";
         }

@@ -1,8 +1,8 @@
 package com.basico.viajes.dao;
  
-import com.basico.viajes.entity.Cuentas;
+import com.basico.viajes.entity.Cuenta;
  
 public interface CuentaDAO {
  
-    public Cuentas findCuenta(String nombre);
+    public Cuenta findCuenta(String nombre);
     }

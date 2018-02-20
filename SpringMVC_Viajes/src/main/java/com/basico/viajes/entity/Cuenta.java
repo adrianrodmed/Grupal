@@ -9,12 +9,12 @@ import javax.persistence.Table;
  
 @Entity
 @Table(name = "Cuentas")
-public class Cuentas implements Serializable {
+public class Cuenta implements Serializable {
  
     private static final long serialVersionUID = -2054386655979281969L;
       
-    public static final String ROLE_Administrador = "ADMINISTRADOR";
-    public static final String ROLE_Empleado = "EMPLEADO";
+    public static final String ROLE_Administrador = "Administrador";
+    public static final String ROLE_Empleado = "Empleado";
     
     private String nombre;
     private boolean active;

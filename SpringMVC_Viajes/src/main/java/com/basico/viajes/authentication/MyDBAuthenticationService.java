@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.basico.viajes.dao.CuentaDAO;
-import com.basico.viajes.entity.Cuentas;
+import com.basico.viajes.entity.Cuenta;
  
 @Service
 public class MyDBAuthenticationService implements UserDetailsService {
@@ -21,11 +21,12 @@ public class MyDBAuthenticationService implements UserDetailsService {
     @Autowired
     private CuentaDAO cuentaDAO;
  
-    public UserDetails loadUserByName(String nombre) throws UsernameNotFoundException {
-        Cuentas cuenta = cuentaDAO.findCuenta(nombre);
+    public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
+        Cuenta cuenta = cuentaDAO.findCuenta(nombre);
         System.out.println("Cuenta= " + cuenta);
  
         if (cuenta == null) {
+        	System.out.println("El usuario no se encuentra en la base de datos");
             throw new UsernameNotFoundException("El usuario " //
                     + nombre + " no se encuentra en nuestra base de datos");
             }
@@ -50,9 +51,4 @@ public class MyDBAuthenticationService implements UserDetailsService {
                 credentialsNonExpired, accountNonLocked, grantList);
         return userDetails;
         }
-
-	public UserDetails loadUserByUsername(String arg0) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null; /*MIRAR BIEN*/
-		}
 	}

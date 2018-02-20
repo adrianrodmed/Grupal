@@ -45,7 +45,7 @@ public class AdminController {
  
     @Autowired
     private DestinoInfoValidator destinoInfoValidator;
- 
+
     // Configurated In ApplicationContextConfig.
     @Autowired
     private ResourceBundleMessageSource messageSource;
