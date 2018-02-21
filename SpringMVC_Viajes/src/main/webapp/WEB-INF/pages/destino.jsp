@@ -41,11 +41,6 @@
 					<td><form:errors path="fecha" class="error-message" /></td>
 				</tr>
 				<tr>
-					<td>Descripcion: </td>
-					<td><form:input path="descripcion" /></td>
-					<td><form:errors path="descripcion" class="error-message" /></td>
-				</tr>
-				<tr>
 					<td>Descripcion corta: </td>
 					<td><form:input path="descripcioncorta" /></td>
 					<td><form:errors path="descripcioncorta" class="error-message" /></td>

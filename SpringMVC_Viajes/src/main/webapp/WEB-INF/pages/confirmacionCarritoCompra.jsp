@@ -24,7 +24,7 @@
 			<h3>Resumen del Carrito: </h3>
 			<ul>
 				<li>Quantity: ${miCarrito.cantidadTotal}</li>
-				<li>Total: <span class="total"><fmt:formatNumber value="${miCarrito.preciototal}" type="currency"/></span></li>
+				<li>Total: <span class="total"><fmt:formatNumber value="${miCarrito.precioTotal}" type="currency"/></span></li>
 			</ul>
 		</div>
 		<form method="POST" action="${pageContext.request.contextPath}/confirmacionCarritoCompra">

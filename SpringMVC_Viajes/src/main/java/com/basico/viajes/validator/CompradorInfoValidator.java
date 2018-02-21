@@ -23,13 +23,13 @@ public class CompradorInfoValidator implements Validator {
         CompradorInfo compradorInfo = (CompradorInfo) target;
  
         // Check the fields of CustomerInfo class.
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "NotEmpty.compradorForm.nombre");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mail", "NotEmpty.compradorForm.mail");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "direccion", "NotEmpty.compradorForm.direccion");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "telefono", "NotEmpty.compradorForm.telefono");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombrecomprador", "NotEmpty.compradorForm.nombrecomprador");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "mailcomprador", "NotEmpty.compradorForm.mailcomprador");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "direccioncomprador", "NotEmpty.compradorForm.direccioncomprador");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "telefonocomprador", "NotEmpty.compradorForm.telefonocomprador");
         
-        if (!mailValidator.isValid(compradorInfo.getDireccioncomprador())) {
-            errors.rejectValue("mail", "Pattern.compradorForm.mail");
-            }
+//        if (!mailValidator.isValid(compradorInfo.getDireccioncomprador())) {
+//            errors.rejectValue("mailcomprador", "Pattern.compradorForm.mailcomprador");
+//            }
         }
     }
