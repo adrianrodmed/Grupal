@@ -24,9 +24,9 @@ public class DestinoDAOImpl implements DestinoDAO {
     public Destino findDestino(String iddestino) {
         Session session = sessionFactory.getCurrentSession();
         Criteria crit = session.createCriteria(Destino.class);
-        crit.createAlias("Destinos", "Dst");
+//        crit.createAlias("Destinos", "Dst");
         crit.add(Restrictions.eq("iddestino", iddestino));
-        crit.add(Restrictions.eq("Cnt.iddestino", iddestino));
+//        crit.add(Restrictions.eq("Cnt.iddestino", iddestino));
         return (Destino) crit.uniqueResult();
         }
  

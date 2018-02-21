@@ -10,7 +10,6 @@ public interface DestinoDAO {
     
     public DestinoInfo findDestinoInfo(String iddestino) ;
   
-    
     public PaginationResult<DestinoInfo> queryDestinos(int page,
                        int maxResult, int maxNavigationPage  );
     

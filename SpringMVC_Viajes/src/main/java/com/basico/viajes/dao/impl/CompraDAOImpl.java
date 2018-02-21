@@ -99,9 +99,9 @@ public class CompraDAOImpl implements CompraDAO {
     public Compra findCompra(String idcompra) {
         Session session = sessionFactory.getCurrentSession();
         Criteria crit = session.createCriteria(Compra.class);
-        crit.createAlias("Compras", "Cmp");
+//        crit.createAlias("Compras", "Cmp");
         crit.add(Restrictions.eq("idcompra", idcompra));
-        crit.add(Restrictions.eq("Cnt.idcompra", idcompra));
+//        crit.add(Restrictions.eq("Cnt.idcompra", idcompra));
         return (Compra) crit.uniqueResult();
         }
  

@@ -13,10 +13,10 @@
 			<a href="${pageContext.request.contextPath}/">Indice</a>|
 			<a href="${pageContext.request.contextPath}/listaDestino">Lista de Destinos</a>|
 			<a href="${pageContext.request.contextPath}/carritoCompra">Mi Carrito</a>|
-			<security:authorize access="hasAnyRole('Administrador','Empleado')">
+			<security:authorize access="hasAnyRole('MANAGER','EMPLOYEE')">
 				<a href="${pageContext.request.contextPath}/listaCompra">Lista de la Compra</a>|
 			</security:authorize>
-			<security:authorize access="hasRole('Administrador')">
+			<security:authorize access="hasRole('MANAGER')">
 				<a href="${pageContext.request.contextPath}/destino">Crear Destino</a>|
 			</security:authorize>
 		</div>

@@ -67,7 +67,7 @@ public class AdminController {
  
     // GET: Show Login Page
     @RequestMapping(value = { "/registro" }, method = RequestMethod.GET)
-    public String login(Model model) {
+    public String registro(Model model) {
         return "registro";
         }
  

@@ -21,20 +21,20 @@
 					<li>Id: ${destInfo.iddestino}</li>
 					<li>Nombre: ${destInfo.nombre}</li>
 					<li>Descripcion: ${destInfo.descripcioncorta}</li>
-					<li>Fecha: ${destInfo.fecha}</li>
-					<li>Nº de plazas: ${destInfo.numplazas}</li>
+<%-- 					<li>Fecha: ${destInfo.fecha}</li> --%>
+<%-- 					<li>Nº de plazas: ${destInfo.numplazas}</li> --%>
 					<li>Precio: <fmt:formatNumber value="${destInfo.precio}" type="currency"/></li>
 					<li><a href="${pageContext.request.contextPath}/compraDestino?iddestino=${destInfo.iddestino}">Comprar ahora</a></li>
 				<!-- For Manager edit Product -->
-					<security:authorize access="hasRole('Administrador')">
+					<security:authorize access="hasRole('MANAGER')">
 						<li><a style="color: red;" href="${pageContext.request.contextPath}/destino?iddestino=${destInfo.iddestino}">Edita un Destino</a></li>
 					</security:authorize>
 				</ul>
 			</div>
 		</c:forEach><br/>
-		<c:if test="${paginationProducts.totalPages > 1}">
+		<c:if test="${paginationDestinos.totalPages > 1}">
 			<div class="page-navigator">
-				<c:forEach items="${paginationProducts.navigationPages}" var = "page">
+				<c:forEach items="${paginationDestinos.navigationPages}" var = "page">
 					<c:if test="${page != -1 }">
 						<a href="listaDestino?page=${page}" class="nav-item">${page}</a>
 					</c:if>

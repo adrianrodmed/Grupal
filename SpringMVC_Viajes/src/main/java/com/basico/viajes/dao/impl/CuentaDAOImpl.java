@@ -20,9 +20,9 @@ public class CuentaDAOImpl implements CuentaDAO {
     public Cuenta findCuenta(String nombre) {
         Session session = sessionFactory.getCurrentSession();
         Criteria crit = session.createCriteria(Cuenta.class);
-        crit.createAlias("Cuentas", "Cnt");
+//        crit.createAlias("Cuentas", "Cnt");
         crit.add(Restrictions.eq("nombre", nombre));
-        crit.add(Restrictions.eq("Cnt.nombre",nombre));
+//        crit.add(Restrictions.eq("Cnt.nombre",nombre));
         return (Cuenta) crit.uniqueResult();
         }
     }

@@ -76,7 +76,7 @@ public class ApplicationContextConfig {
         properties.put("current_session_context_class", env.getProperty("current_session_context_class"));
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
          
-        factoryBean.setPackagesToScan(new String[] { "org.o7planning.springmvcshoppingcart.entity" });
+        factoryBean.setPackagesToScan(new String[] { "com.basico.viajes.entity" });
         factoryBean.setDataSource(dataSource);
         factoryBean.setHibernateProperties(properties);
         factoryBean.afterPropertiesSet();

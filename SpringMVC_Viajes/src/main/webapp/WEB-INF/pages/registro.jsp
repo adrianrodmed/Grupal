@@ -32,6 +32,7 @@
 					<tr>
 						<td>&nbsp;</td>
 						<td><input type="submit" value="Registro" /> <input type="reset" value="Reinicio" /></td>
+						<td><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></td>
 					</tr>
 				</table>
 			</form>

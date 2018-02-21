@@ -27,7 +27,7 @@
 			</tr>
 			<c:forEach items="${paginationResult.list}" var="compraInfo">
 				<tr>
-					<td><fmt:formatNumber value="${compraInfo.numcompra}" type="currency"/></td>
+					<td>${compraInfo.numcompra}"</td>
 					<td><fmt:formatDate value="${compraInfo.fechacompra}" pattern="dd-MM-yyyy HH:mm"/></td>
 					<td>${compraInfo.nombrecomprador}</td>
 					<td>${compraInfo.direccioncomprador}</td>

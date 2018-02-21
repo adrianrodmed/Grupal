@@ -33,7 +33,7 @@
 				<tr>
 					<td>Nombre: </td>
 					<td><form:input path="nombre"/></td>
-					<td><form:errors path="name" class="error-message" /></td>
+					<td><form:errors path="nombre" class="error-message" /></td>
 				</tr>
 				<tr>
 					<td>Fecha: </td>

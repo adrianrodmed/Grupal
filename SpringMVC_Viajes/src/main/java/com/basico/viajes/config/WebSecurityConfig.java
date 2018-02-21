@@ -26,10 +26,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
        http.csrf().disable();
  
        http.authorizeRequests().antMatchers("/compraList","/compra", "cuentaInfo")//
-               .access("hasAnyRole('Empleado', 'Administrador')");
+               .access("hasAnyRole('ROLE_EMPLOYEE', 'ROLE_MANAGER')");
  
        // For MANAGER only.
-       http.authorizeRequests().antMatchers("/destino").access("hasRole('Administrador')");
+       http.authorizeRequests().antMatchers("/destino").access("hasRole('ROLE_MANAGER')");
  
        // When the user has logged in as XX.
        // But access a page that requires role YY,
@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
        http.authorizeRequests().and().formLogin()//
                // Submit URL of login page.
                .loginProcessingUrl("/j_spring_security_check") // Submit URL
-               .loginPage("/registro")//
+               .loginPage("/pages/registro.jsp")// MIRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
                .defaultSuccessUrl("/cuentaInfo")//
                .failureUrl("/registro?error=true")//
                .usernameParameter("nombre")//
