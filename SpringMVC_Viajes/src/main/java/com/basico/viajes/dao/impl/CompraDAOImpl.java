@@ -90,7 +90,7 @@ public class CompraDAOImpl implements CompraDAO {
                 + "(com.idcompra, com.fechacompra, com.numcompra, com.preciototal, "
                 + " com.nombrecomprador, com.direccioncomprador, com.mailcomprador, com.telefonocomprador) " + " from "
                 + Compra.class.getName() + " com "//
-                + " compra by com.numcompra desc";
+                + " order by com.numcompra desc";
         Session session = this.sessionFactory.getCurrentSession();
         Query query = session.createQuery(sql);
         return new PaginationResult<CompraInfo>(query, page, maxResult, maxNavigationPage);
@@ -110,10 +110,10 @@ public class CompraDAOImpl implements CompraDAO {
         if (compra == null) {
             return null;
             }
-        return new CompraInfo(compra.getIdcompra(), compra.getPreciototal(), //
+        return new CompraInfo(compra.getIdcompra(),compra.getFechacompra(),//
+        		compra.getNumcompra(), compra.getPreciototal(), //
         		compra.getDireccioncomprador(), compra.getMailcomprador(), //
-        		compra.getNombrecomprador(), compra.getTelefonocomprador(), //
-        		compra.getFechacompra(), compra.getNumcompra());
+        		compra.getNombrecomprador(), compra.getTelefonocomprador());
         }
  
     public List<ReservaInfo> listReservasInfos(String idcompra) {

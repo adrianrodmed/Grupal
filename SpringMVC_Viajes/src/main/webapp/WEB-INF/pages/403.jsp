@@ -11,7 +11,7 @@
 		<jsp:include page="_encabezado.jsp" />
 		<jsp:include page="_menu.jsp" />
 		<div class="page-title">¡Acceso Denegado!</div>
-		<h3 style="color: red;">Lo siento, no puedez acceder a esta pagina.</h3>
+		<h3 style="color: red;">Lo siento, no puedes acceder a esta pagina.</h3>
 		<jsp:include page="_piePagina.jsp" />
 	</body>
 </html>

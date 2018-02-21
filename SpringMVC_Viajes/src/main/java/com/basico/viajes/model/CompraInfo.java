@@ -6,13 +6,14 @@ import java.util.List;
 public class CompraInfo {
  
     private String idcompra;
+    private Date fechacompra;
+    private int numcompra;
     private double preciototal;
     private String direccioncomprador;
     private String mailcomprador;
     private String nombrecomprador;
     private String telefonocomprador;
-    private Date fechacompra;
-    private int numcompra;
+    
 
     private List<ReservaInfo> reservas;
  
@@ -20,8 +21,8 @@ public class CompraInfo {
  
     }
  
-    public CompraInfo(String idcompra, double preciototal, String direccioncomprador, String mailcomprador,
-			String nombrecomprador, String telefonocomprador, Date fechacompra, int numcompra) {
+    public CompraInfo(String idcompra, Date fechacompra, int numcompra, double preciototal, String direccioncomprador, String mailcomprador,
+			String nombrecomprador, String telefonocomprador) {
 		this.idcompra = idcompra;
 		this.preciototal = preciototal;
 		this.direccioncomprador = direccioncomprador;

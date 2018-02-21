@@ -39,7 +39,7 @@
 				<div style="clear: both"></div>
 				<input class="button-update-sc" type="submit" value="Actualiza cantidad"/>
 				<a class="navi-item" href="${pageContext.request.contextPath}/carritoCompraComprador">Introduce la Informacion del Comprador</a>
-				<a class="navi-item" href="${pageContext.request.contextPath}/listaCompra">Continua Comprando</a>
+				<a class="navi-item" href="${pageContext.request.contextPath}/listaDestino">Continua Comprando</a>
 			</form:form>
 		</c:if>
 		<jsp:include page="_piePagina.jsp" />

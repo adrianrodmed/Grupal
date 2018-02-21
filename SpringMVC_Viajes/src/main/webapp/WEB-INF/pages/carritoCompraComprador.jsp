@@ -17,23 +17,23 @@
 			<table>
 				<tr>
 					<td>Nombre: </td>
-					<td><form:input path="nombre"/></td>
-					<td><form:errors path="nombre" class="error-message"/></td>
+					<td><form:input path="nombrecomprador"/></td>
+					<td><form:errors path="nombrecomprador" class="error-message"/></td>
 				</tr>
 				<tr>
 					<td>Email: </td>
-					<td><form:input path="mail" /></td>
-					<td><form:errors path="mail" class="error-message"/></td>
+					<td><form:input path="mailcomprador" /></td>
+					<td><form:errors path="mailcomprador" class="error-message"/></td>
 				</tr>
 				<tr>
 					<td>Telefono: </td>
-					<td><form:input path="telefono" /></td>
-					<td><form:errors path="telefono" class="error-message"/></td>
+					<td><form:input path="telefonocomprador" /></td>
+					<td><form:errors path="telefonocomprador" class="error-message"/></td>
 				</tr>
 				<tr>
 					<td>Direccion: </td>
-					<td><form:input path="direccion"/></td>
-					<td><form:errors path="direccion" class="error-message"/></td>
+					<td><form:input path="direccioncomprador"/></td>
+					<td><form:errors path="direccioncomprador" class="error-message"/></td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>

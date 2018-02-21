@@ -54,9 +54,9 @@ public class DestinoDAOImpl implements DestinoDAO {
             }
         destino.setIddestino(iddestino);;
         destino.setNombre(destinoInfo.getNombre());
-        destino.setDescripcioncorta(destinoInfo.getDescripcioncorta());
-        destino.setFecha(destinoInfo.getFecha());
-        destino.setNumplazas(destinoInfo.getNumplazas());
+//        destino.setDescripcioncorta(destinoInfo.getDescripcioncorta());
+//        destino.setFecha(destinoInfo.getFecha());
+//        destino.setNumplazas(destinoInfo.getNumplazas());
         destino.setPrecio(destinoInfo.getPrecio());
  
         if (destinoInfo.getFileData() != null) {
@@ -74,12 +74,12 @@ public class DestinoDAOImpl implements DestinoDAO {
     public PaginationResult<DestinoInfo> queryDestinos(int page, int maxResult, int maxNavigationPage,
             String likeName) {
         String sql = "Select new " + DestinoInfo.class.getName() //
-                + "(d.iddestino, d.nombre, d.descripcioncorta, d.fecha, d.numplazas ,d.precio) " + " from "//
+                + "(d.iddestino, d.nombre, d.descripcioncorta, d.fecha, d.numplazas, d.precio) " + " from "//
                 + Destino.class.getName() + " d ";
         if (likeName != null && likeName.length() > 0) {
             sql += " Where lower(d.nombre) like :likeName ";
             }
-        sql += " compra by d.fecha desc ";
+        sql += " order by d.fecha desc ";
         //
         Session session = sessionFactory.getCurrentSession();
         Query query = session.createQuery(sql);

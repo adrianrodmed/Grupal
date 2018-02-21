@@ -2,7 +2,7 @@ package com.basico.viajes.model;
  
 public class ReservaInfo {
     private String idreserva;
-    private String iddestino;
+    private String iddestino;/*Id del destino*/
     private String nombre;/*Nombre del destino*/
     private int cantidad;
     private double precio;
