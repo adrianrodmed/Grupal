@@ -37,8 +37,8 @@ public class ItextPdfView extends AbstractITextPdfView {
         for (LineaCarritoInfo cInfo : carritoinfo.getLineaCarrito()){
         	table.addCell(String.valueOf(cInfo.getDestinoInfo().getNombre()));
         	table.addCell(String.valueOf(cInfo.getDestinoInfo().getFecha()));
-    		table.addCell(String.valueOf(carritoinfo.getCantidadTotal()));
-    		table.addCell(String.valueOf(carritoinfo.getPrecioTotal()));
+    		table.addCell(String.valueOf(cInfo.getCantidad()));
+    		table.addCell(String.valueOf(cInfo.getPreciototal()));
     		table.addCell(String.valueOf(carritoinfo.getCompradorInfo().getMailcomprador()));
     		}
         document.add(table);

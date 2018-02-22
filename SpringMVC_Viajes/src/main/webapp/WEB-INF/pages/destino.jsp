@@ -35,11 +35,11 @@
 					<td><form:input path="nombre"/></td>
 					<td><form:errors path="nombre" class="error-message" /></td>
 				</tr>
-				<tr>
-					<td>Fecha: </td>
-					<td><form:input path="fecha" /></td>
-					<td><form:errors path="fecha" class="error-message" /></td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<td>Fecha: </td> -->
+<%-- 					<td><form:input path="fecha" /></td> --%>
+<%-- 					<td><form:errors path="fecha" class="error-message" /></td> --%>
+<!-- 				</tr> -->
 				<tr>
 					<td>Descripcion corta: </td>
 					<td><form:input path="descripcioncorta" /></td>

@@ -8,12 +8,12 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
 	</head>
 	<body style="text-align: center;">
-		<jsp:include page="_encabezado.jsp" />
-		<jsp:include page="_menu.jsp" />
+		<jsp:include page="WEB-INF/pages/_encabezado.jsp" />
+		<jsp:include page="WEB-INF/pages/_menu.jsp" />
 		<div class="page-title">Compra de Viajes Online</div>
 		<div class="demo-container">
 			<h3>Bienvenidos</h3>
 		</div>
-		<jsp:include page="_piePagina.jsp" /> 
+		<jsp:include page="WEB-INF/pages/_piePagina.jsp" /> 
 	</body>
 </html>

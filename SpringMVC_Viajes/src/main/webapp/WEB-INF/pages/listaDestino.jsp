@@ -17,12 +17,12 @@
 		<c:forEach items="${paginationDestinos.list}" var="destInfo">
 			<div class="product-preview-container">
 				<ul>
-					<li><img class="product-image" src="${pageContext.request.contextPath}/destinoImagen?iddestino=${destInfo.iddestino}" /></li>
+					<li><img class="product-image" src="${pageContext.request.contextPath}/imagenDestino?iddestino=${destInfo.iddestino}" /></li>
 					<li>Id: ${destInfo.iddestino}</li>
 					<li>Nombre: ${destInfo.nombre}</li>
 					<li>Descripcion: ${destInfo.descripcioncorta}</li>
-<%-- 					<li>Fecha: ${destInfo.fecha}</li> --%>
-<%-- 					<li>Nº de plazas: ${destInfo.numplazas}</li> --%>
+					<li>Fecha: <fmt:formatDate value="${destInfo.fecha}" pattern="dd-MM-yyyy HH:mm"/></li>
+					<li>Nº de plazas: <fmt:formatNumber value="${destInfo.numplazas}"/></li>
 					<li>Precio: <fmt:formatNumber value="${destInfo.precio}" type="currency"/></li>
 					<li><a href="${pageContext.request.contextPath}/compraDestino?iddestino=${destInfo.iddestino}">Comprar ahora</a></li>
 				<!-- For Manager edit Product -->
