@@ -137,6 +137,7 @@ public class AdminController {
             // Need: Propagation.NEVER?
             String mensaje = e.getMessage();
             model.addAttribute("mensaje", mensaje);
+            System.out.println(mensaje);
             // Show product form.
             return "destino";
             }

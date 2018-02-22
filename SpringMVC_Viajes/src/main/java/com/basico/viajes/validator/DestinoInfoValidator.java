@@ -25,7 +25,7 @@ public class DestinoInfoValidator implements Validator {
         DestinoInfo destinoInfo = (DestinoInfo) target;
  
         // Check the fields of ProductInfo class.
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "iddestino", "NotEmpty.destinoForm.code");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "iddestino", "NotEmpty.destinoForm.iddestino");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "NotEmpty.destinoForm.nombre");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "descripcioncorta", "NotEmpty.destinoForm.descripcioncorta");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "fecha", "NotEmpty.destinoForm.fecha");

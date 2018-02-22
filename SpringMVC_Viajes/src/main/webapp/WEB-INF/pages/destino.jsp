@@ -40,16 +40,16 @@
 <%-- 					<td><form:input path="fecha" /></td> --%>
 <%-- 					<td><form:errors path="fecha" class="error-message" /></td> --%>
 <!-- 				</tr> -->
-				<tr>
-					<td>Descripcion corta: </td>
-					<td><form:input path="descripcioncorta" /></td>
-					<td><form:errors path="descripcioncorta" class="error-message" /></td>
-				</tr>
-				<tr>
-					<td>Nº de plazas: </td>
-					<td><form:input path="numplazas" /></td>
-					<td><form:errors path="numplazas" class="error-message" /></td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<td>Descripcion corta: </td> -->
+<%-- 					<td><form:input path="descripcioncorta" /></td> --%>
+<%-- 					<td><form:errors path="descripcioncorta" class="error-message" /></td> --%>
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<td>Nº de plazas: </td> -->
+<%-- 					<td><form:input path="numplazas" /></td> --%>
+<%-- 					<td><form:errors path="numplazas" class="error-message" /></td> --%>
+<!-- 				</tr> -->
 				<tr>
 					<td>Precio: </td>
 					<td><form:input path="precio" /></td>
@@ -57,7 +57,7 @@
 				</tr>
 				<tr>
 					<td>Imagen: </td>
-					<td><img src="${pageContext.request.contextPath}/destinoImagen?iddestino=${destinoForm.iddestino}" width="100"/></td>
+					<td><img src="${pageContext.request.contextPath}/imagenDestino?iddestino=${destinoForm.iddestino}" width="100"/></td>
 					<td></td>
 				</tr>
 				<tr>
