@@ -224,11 +224,24 @@ public class MainController {
             return "confirmacionCarritoCompra";
             }
         // Remove Cart In Session.
-        Utiles.eliminaSesionCarrito(request); 
+//        Utiles.eliminaSesionCarrito(request); 
         // Store Last ordered cart to Session.
         Utiles.guardaUltimaCompraSesionCarrito(request, carritoInfo);
         // Redirect to successful page.
         return "redirect:/finalizacionCarritoCompra";
+    }
+    
+    @RequestMapping(value = { "/finalizacionCarritoCompra" }, method = RequestMethod.POST)
+    // Avoid UnexpectedRollbackException (See more explanations)
+    @Transactional(propagation = Propagation.NEVER)
+    public String vuelveAlPrincipio(HttpServletRequest request, Model model) {
+    	CarritoInfo carritoInfo = Utiles.getSesionCarrito(request);
+        // Remove Cart In Session.
+        Utiles.eliminaSesionCarrito(request);
+        // Store Last ordered cart to Session.
+        Utiles.guardaUltimaCompraSesionCarrito(request, carritoInfo);
+        // Redirect to successful page.
+        return "listaDestino";
     }
  
     @RequestMapping(value = { "/finalizacionCarritoCompra" }, method = RequestMethod.GET)

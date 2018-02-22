@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page isELIgnored="false" %> 
 <!DOCTYPE html>
 <html>
@@ -16,8 +17,11 @@
 			Tu numero de compra es: ${ultimaCompraCarrito.numcompra}
 		</div>
 		<div class="container">
-			<a href="/SpringMVC_Viajes/.pdf">Descarga el PDF de tu factura</a>
+			<a href="${pageContext.request.contextPath}/.pdf">Descarga el PDF de tu factura</a>
 		</div>
+		<form:form method="POST" action="${pageContext.request.contextPath}/listaDestino">
+			<input type="submit" value="Pinche aquí para recibir un 10% en su proxima compra"/>
+		</form:form>
 		<jsp:include page="_piePagina.jsp" />
 	</body>
 </html>

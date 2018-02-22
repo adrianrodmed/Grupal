@@ -25,21 +25,21 @@ public class ItextPdfView extends AbstractITextPdfView {
         @SuppressWarnings("unchecked")
 //        List<CartInfo> cartinfos = (List<CartInfo>) model.get("cartinfos");
         CarritoInfo carritoinfo = Utiles.getSesionCarrito(request);
-        PdfPTable table = new PdfPTable(5);
-        table.setWidths(new int[]{35, 10, 10, 10, 35});
+        PdfPTable table = new PdfPTable(4);
+        table.setWidths(new int[]{30, 30, 20, 20});
 
         table.addCell("Nombre del producto");
         table.addCell("Fecha");
         table.addCell("Cantidad");
         table.addCell("Subtotal");
-        table.addCell("Mail del comprador");
+//        table.addCell("Mail del comprador");
         
         for (LineaCarritoInfo cInfo : carritoinfo.getLineaCarrito()){
         	table.addCell(String.valueOf(cInfo.getDestinoInfo().getNombre()));
         	table.addCell(String.valueOf(cInfo.getDestinoInfo().getFecha()));
     		table.addCell(String.valueOf(cInfo.getCantidad()));
     		table.addCell(String.valueOf(cInfo.getPreciototal()));
-    		table.addCell(String.valueOf(carritoinfo.getCompradorInfo().getMailcomprador()));
+//    		table.addCell(String.valueOf(carritoinfo.getCompradorInfo().getMailcomprador()));
     		}
         document.add(table);
         }
